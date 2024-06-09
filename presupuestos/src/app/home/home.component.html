@@ -1,1 +1,56 @@
-<p>home works!</p>
+<div class="container">
+    <form [formGroup]="presupuestoForm">
+        <div class="card shadow-sm mb-4" style="width: 100%;">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div class="text-left">
+                    <h5 class="card-title">Seo</h5>
+                    <p class="card-text">Realización de una campaña SEO completa.</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="price">300€</h3>
+                </div>
+                <div>
+                    <input type="checkbox" class="p-2" (change)="onEventChange()" formControlName="SEO">
+                    <label class="ml-2">Elegir</label>
+                </div>
+            </div>
+        </div>
+        <div class="card shadow-sm mb-4" style="width: 100%;">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h5 class="card-title">Ads</h5>
+                    <p class="card-text">Lanzamiento de una campaña de publicidad.</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="price">400€</h3>
+                </div>
+                <div>
+                    <input type="checkbox" class="p-2" (change)="onEventChange()" formControlName="Ads">
+                    <label class="ml-2">Elegir</label>
+                </div>
+            </div>
+        </div>
+        <div class="card shadow-sm mb-4" style="width: 100%;">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h5 class="card-title">Web</h5>
+                    <p class="card-text">Programación de una web responsiva completa.</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="price">500€</h3>
+                </div>
+                <div>
+                    <input type="checkbox" class="p-2" (change)="onEventChange()" formControlName="Web">
+                    <label class="ml-2">Elegir</label>
+                </div>
+            </div>
+            @if (presupuestoForm.value.Web) {
+            <app-panel (newItemEvent)="cargarPresupuesto($event)"></app-panel>
+            }
+        </div>
+    </form>
+    <div class="mt-4">
+        <p>Preu pressupostat:</p>
+        <span>{{ monto }} €</span>
+    </div>
+</div>

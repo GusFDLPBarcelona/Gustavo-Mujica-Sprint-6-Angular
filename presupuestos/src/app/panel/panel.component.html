@@ -1,1 +1,14 @@
-<p>panel works!</p>
+<div class="extras-panel">
+    <form [formGroup]="extrasForm">
+        <div class="extra-item">
+            <label for="pages">Número de páginas</label>
+            <input (change)="capturarCambios($event)" type="number" id="pages" formControlName="cantidadPaginas" min="1"
+                value="1">
+        </div>
+        <div class="extra-item">
+            <label for="languages">Número de idiomas</label>
+            <input (change)="capturarCambios($event)" type="number" id="languages" formControlName="cantidadIdiomas"
+                min="1" value="1">
+        </div>
+    </form>
+</div>
