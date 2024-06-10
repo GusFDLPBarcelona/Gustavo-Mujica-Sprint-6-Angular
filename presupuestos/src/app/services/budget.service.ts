@@ -20,7 +20,7 @@ export class BudgetService {
     console.log(presupuesto);
     if (presupuesto.SEO) {
       this.montoFinal += this.SEO;
-    } 
+    }
     if (presupuesto.Ads) {
       this.montoFinal += this.Ads;
     }
@@ -37,7 +37,7 @@ export class BudgetService {
 
   calcularExtras(presupuesto: any): number {
     this.extras = 0;
-    this.extras = presupuesto.cantidadPaginas * presupuesto.cantidadIdiomas * 30;
+    this.extras = (presupuesto.cantidadPaginas * presupuesto.cantidadIdiomas) * 30;
     console.log("extras", this.extras);
     return this.extras;
   };

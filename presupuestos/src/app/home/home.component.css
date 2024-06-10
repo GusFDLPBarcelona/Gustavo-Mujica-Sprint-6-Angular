@@ -88,12 +88,12 @@ body {
   margin: 0;
 }
 
-/* Otros estilos... */
+
 
 .extras-panel {
   margin-top: 1rem;
   padding: 1rem;
-  border-top: none; /* Cambia esto */
+  border-top: none; 
 }
 
 .extra-item {body {
@@ -185,7 +185,7 @@ body {
   margin: 0;
 }
 
-/* Extras Panel */
+
 .extras-panel {
   margin-top: 1rem;
   padding: 1rem;

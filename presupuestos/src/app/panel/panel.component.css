@@ -1,0 +1,32 @@
+.botonInfo{
+    background-color: white;
+    height: 30px;
+    margin-bottom: 5px;
+    border: none;
+}
+
+
+.extras-panel {
+  margin-top: 20px;
+}
+
+.extra-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.extra-item button {
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .extra-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .extra-item button {
+    margin-bottom: 10px;
+  }
+}

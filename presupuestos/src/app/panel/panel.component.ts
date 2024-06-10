@@ -1,22 +1,22 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { BudgetService } from '../services/budget.service';
-import { iBudget } from '../interfaces/budget.interface';
+import { ModalComponent } from '../shared/modal/modal.component';
 
 @Component({
   selector: 'app-panel',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, ModalComponent],
   templateUrl: './panel.component.html',
-  styleUrl: './panel.component.css'
+  styleUrls: ['./panel.component.css']
 })
 export class PanelComponent {
   @Output() newItemEvent = new EventEmitter<number>();
-
+  @ViewChild('modalComponent') modalComponent?: ModalComponent;
 
   extras = 0;
   constructor(private budgetService: BudgetService) { }
-
 
   extrasForm = new FormGroup({
     cantidadPaginas: new FormControl<number>(1),
@@ -28,13 +28,10 @@ export class PanelComponent {
     console.log("cargar presupuesto");
     this.extras = this.budgetService.calcularExtras(this.extrasForm.value);
     this.newItemEvent?.emit(this.extras);
-
   }
 
-
-
-
-
-
-
+  abrirModalPadre(tipo: string) {
+    console.log("abrir padre");
+    this.modalComponent?.abrirModal(tipo);
+  }
 }

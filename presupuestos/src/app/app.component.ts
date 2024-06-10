@@ -4,11 +4,13 @@ import { HomeComponent } from './home/home.component';
 import { BudgetService } from './services/budget.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PanelComponent } from './panel/panel.component';
+import { ModalComponent } from './shared/modal/modal.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent, ReactiveFormsModule, PanelComponent],
+  imports: [RouterOutlet, HomeComponent, ReactiveFormsModule, PanelComponent, ModalComponent],
+  template: '<app-panel></app-panel>',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
