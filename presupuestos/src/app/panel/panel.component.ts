@@ -23,9 +23,8 @@ export class PanelComponent {
     cantidadIdiomas: new FormControl<number>(1)
   });
 
-  capturarCambios(event: any): void {
+  capturarCambios(): void {
     this.extras = 0;
-    console.log("cargar presupuesto");
     this.extras = this.budgetService.calcularExtras(this.extrasForm.value);
     this.newItemEvent?.emit(this.extras);
   }

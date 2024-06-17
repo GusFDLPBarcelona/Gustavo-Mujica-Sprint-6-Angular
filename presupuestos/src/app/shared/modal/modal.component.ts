@@ -17,10 +17,12 @@ export class ModalComponent {
     console.log("abrir hijo", tipo);
     if (tipo === 'paginas') {
       this.titulo = 'Número de páginas';
-      this.contenido = 'Elija la cantidad de páginas que desea en su sitio web.';
+      this.contenido = 'Elija la cantidad de páginas que desea en su sitio web. ' +
+        'El presupuesto inicial incluye una página y un idioma.';
     } else if (tipo === 'idiomas') {
       this.titulo = 'Número de idiomas';
-      this.contenido = 'Elija la cantidad de idiomas que desea en su sitio web.';
+      this.contenido = 'Elija la cantidad de idiomas que desea en su sitio web. ' +
+        'El presupuesto inicial incluye una página y un idioma.';
     }
     this.modalVisible = true;
     console.log(this.modalVisible);

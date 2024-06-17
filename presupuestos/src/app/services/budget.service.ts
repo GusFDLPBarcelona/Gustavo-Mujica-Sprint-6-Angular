@@ -37,8 +37,13 @@ export class BudgetService {
 
   calcularExtras(presupuesto: any): number {
     this.extras = 0;
-    this.extras = (presupuesto.cantidadPaginas * presupuesto.cantidadIdiomas) * 30;
-    console.log("extras", this.extras);
+    if (presupuesto.cantidadPaginas === 1 && presupuesto.cantidadIdiomas === 1) {
+      this.extras = 0;
+    } else {
+      this.extras = (presupuesto.cantidadPaginas * presupuesto.cantidadIdiomas * 30);
+      console.log("extras", this.extras);
+    }
+
     return this.extras;
   };
 }
