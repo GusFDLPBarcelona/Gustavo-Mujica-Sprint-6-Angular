@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
+import { BudgetService } from '../services/budget.service';
+import { iPresupuesto } from '../models/budget';
 
 @Component({
   selector: 'app-budget-list',
@@ -8,5 +10,14 @@ import { Component } from '@angular/core';
   styleUrl: './budget-list.component.css'
 })
 export class BudgetListComponent {
+  userPresupuestos: iPresupuesto[] = [];
 
+
+  constructor(private budgetService: BudgetService) { }
+
+  presupuestosList = signal(this.userPresupuestos);
+
+  ngOnInit(): void {
+    this.userPresupuestos = this.budgetService.getPrespuestos();
+  }
 }
