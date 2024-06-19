@@ -62,11 +62,11 @@
             <div class="text-center">
                 <form [formGroup]='usuarioForm'>
                     <label>Nombre</label>
-                    <input type="text">
+                    <input type="text" formControlName="nombre">
                     <label>Telefono</label>
-                    <input type="number">
+                    <input type="number" formControlName="telefono">
                     <label>email</label>
-                    <input type="email">
+                    <input type="email" formControlName="email">
                     <div class="flex-row-reverse mt-3 p-2 align-item-right">
                         <button (click)="guardarPresupuesto()">Pedir Presupuesto</button>
                     </div>

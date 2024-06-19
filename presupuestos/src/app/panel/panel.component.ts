@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BudgetService } from '../services/budget.service';
 import { ModalComponent } from '../shared/modal/modal.component';
+import { iExtra } from '../models/budget';
 
 @Component({
   selector: 'app-panel',
@@ -25,7 +26,7 @@ export class PanelComponent {
 
   capturarCambios(): void {
     this.extras = 0;
-    this.extras = this.budgetService.calcularExtras(this.extrasForm.value);
+    this.extras = this.budgetService.calcularExtras(this.extrasForm.value as iExtra);
     this.newItemEvent?.emit(this.extras);
   }
 

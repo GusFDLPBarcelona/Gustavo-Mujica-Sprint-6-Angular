@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { iBudget } from '../interfaces/budget.interface';
-import { iPresupuesto } from '../models/budget';
+import { iExtra, iPresupuesto } from '../models/budget';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,10 @@ export class BudgetService {
 
   montoFinal = 0;
   extras: number = 0;
+  detalleExtras: iExtra = {
+    cantidadIdiomas: 0,
+    cantidadPaginas: 0
+  };
   listaPresupuestosTotal: iPresupuesto[] = [];
 
   constructor() { }
@@ -36,8 +40,13 @@ export class BudgetService {
     return this.montoFinal += this.extras;
   }
 
-  calcularExtras(presupuesto: any): number {
+  calcularExtras(presupuesto: iExtra): number {
     this.extras = 0;
+    this.detalleExtras = {
+      cantidadIdiomas: presupuesto.cantidadIdiomas,
+      cantidadPaginas: presupuesto.cantidadPaginas
+    }
+
     if (presupuesto.cantidadPaginas === 1 && presupuesto.cantidadIdiomas === 1) {
       this.extras = 0;
     } else {
@@ -49,7 +58,8 @@ export class BudgetService {
   };
 
   getPrespuestos(): iPresupuesto[] {
-    return [];
+
+    return this.listaPresupuestosTotal;
   }
 
   crearPresupuesto(presupuesto: iPresupuesto): iPresupuesto[] {
@@ -61,12 +71,11 @@ export class BudgetService {
         email: presupuesto.usuario.email
       },
       monto: presupuesto.monto,
-      extras: presupuesto.extras
+      extras: this.detalleExtras
     }
-    if (this.extras !== 0) {
 
-    }
     this.listaPresupuestosTotal.push(presupuestoGuardar);
+    console.log(presupuestoGuardar);
     return [];
   }
 }

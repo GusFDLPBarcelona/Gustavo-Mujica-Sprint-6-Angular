@@ -5,3 +5,4 @@ export interface iBudget {
     cantidadPaginas?: number;
     cantidadIdiomas?: number;
 }
+

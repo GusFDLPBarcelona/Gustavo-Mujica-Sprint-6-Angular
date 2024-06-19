@@ -10,6 +10,12 @@ import { iPresupuesto } from '../models/budget';
   styleUrl: './budget-list.component.css'
 })
 export class BudgetListComponent {
+
+
+  SEO = 0;
+  ADS = 1;
+  WEB = 2;
+
   userPresupuestos: iPresupuesto[] = [];
 
 
@@ -19,5 +25,49 @@ export class BudgetListComponent {
 
   ngOnInit(): void {
     this.userPresupuestos = this.budgetService.getPrespuestos();
+    console.log(this.userPresupuestos);
   }
+  ordenarPorNombre(): void {
+    const arrayOrdenado = this.userPresupuestos.sort((a, b) => {
+      if (a.usuario.nombre < b.usuario.nombre) {
+        return -1;
+      }
+      if (a.usuario.nombre > b.usuario.nombre) {
+        return 1;
+      }
+      return 0;
+    });
+    this.userPresupuestos = arrayOrdenado;
+
+  }
+
+  ordenarPorTelefono(): void {
+    const arrayOrdenado = this.userPresupuestos.sort((a, b) => {
+      if (a.usuario.telefono < b.usuario.telefono) {
+        return -1;
+      }
+      if (a.usuario.telefono > b.usuario.telefono) {
+        return 1;
+      }
+      return 0;
+    });
+    this.userPresupuestos = arrayOrdenado;
+
+  }
+
+  ordenarPorMonto(): void {
+    const arrayOrdenado = this.userPresupuestos.sort((a, b) => {
+      if (a.monto < b.monto) {
+        return -1;
+      }
+      if (a.monto > b.monto) {
+        return 1;
+      }
+      return 0;
+    });
+    this.userPresupuestos = arrayOrdenado;
+  }
+
 }
+
+

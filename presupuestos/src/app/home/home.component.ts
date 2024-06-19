@@ -25,7 +25,10 @@ export class HomeComponent {
       email: ''
     },
     monto: 0,
-    extras: []
+    extras: {
+      cantidadIdiomas: 0,
+      cantidadPaginas: 0
+    }
   };
   usuarioForm = new FormGroup({
     nombre: new FormControl('', [Validators.required, Validators.pattern('[A-Z][a-z]')]),
@@ -48,7 +51,10 @@ export class HomeComponent {
         email: this.usuarioForm.value.email ?? ''
       },
       monto: this.monto,
-      extras: []
+      extras: {
+        cantidadIdiomas: 0,
+        cantidadPaginas: 0
+      }
     }
     this.budgetService.crearPresupuesto(presupuesto);
 

@@ -6,6 +6,11 @@ export interface iPresupuesto {
         email: string
     },
     monto: number,
-    extras: []
+    extras: iExtra
+}
+
+export interface iExtra {
+    cantidadIdiomas: number,
+    cantidadPaginas: number
 }
 
