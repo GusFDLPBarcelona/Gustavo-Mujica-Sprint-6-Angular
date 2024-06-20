@@ -68,7 +68,8 @@ export class BudgetService {
       usuario: {
         nombre: presupuesto.usuario.nombre,
         telefono: presupuesto.usuario.telefono,
-        email: presupuesto.usuario.email
+        email: presupuesto.usuario.email,
+        fecha: new Date(),
       },
       monto: presupuesto.monto,
       extras: this.detalleExtras

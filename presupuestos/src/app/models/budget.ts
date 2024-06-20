@@ -3,7 +3,8 @@ export interface iPresupuesto {
     usuario: {
         nombre: string,
         telefono: string,
-        email: string
+        email: string,
+        fecha: Date
     },
     monto: number,
     extras: iExtra

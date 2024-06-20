@@ -22,7 +22,8 @@ export class HomeComponent {
     usuario: {
       nombre: '',
       telefono: '',
-      email: ''
+      email: '',
+      fecha: new Date()
     },
     monto: 0,
     extras: {
@@ -48,7 +49,8 @@ export class HomeComponent {
       usuario: {
         nombre: this.usuarioForm.value.nombre ?? '',
         telefono: this.usuarioForm.value.telefono ?? '',
-        email: this.usuarioForm.value.email ?? ''
+        email: this.usuarioForm.value.email ?? '',
+        fecha: new Date()
       },
       monto: this.monto,
       extras: {
