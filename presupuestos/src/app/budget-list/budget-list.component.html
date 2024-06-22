@@ -1,38 +1,41 @@
-<button (click)="ordenarPorNombre()">Ordenar por nombre</button>
-<button (click)="ordenarPorTelefono()">Ordenar por telefono</button>
-<button (click)="ordenarPorMonto()">Ordenar por monto</button>
-
-
-
-
-@for (presupuesto of userPresupuestos; track presupuesto) {
-<div class="card shadow-sm mb-4">
-    <div class="card-body d-flex justify-content-between align-items-center">
-        <div class="text-left">
-            <h5 class="card-title">Nombre: {{presupuesto.usuario.nombre}}</h5>
-            <p class="card-text">{{presupuesto.usuario.email}}</p>
-            <p class="card-text">{{presupuesto.usuario.telefono}}</p>
+<div>
+    <h2>Listado de presupuesto por usuarios</h2>
+    <nav class="d-flex flex-grow">
+        <button (click)="ordenarPorNombre()">Ordenar por nombre</button>
+        <button (click)="ordenarPorFecha()">Ordenar por fecha</button>
+        <button (click)="ordenarPorMonto()">Ordenar por monto</button>
+        <div class="input-group">
+            <input type="text" class="form-control rounded mw-100" placeholder="Search" aria-label="Search"
+                onkeypress="buscarNombre($event)" formControlName="nombre" />
         </div>
+    </nav>
+    @for (presupuesto of userPresupuestos; track presupuesto) { <div class="card shadow-sm mb-4">
+        <div class="card-body d-flex justify-content-between align-items-center">
+            <div class="text-left">
+                <h5 class="card-title">Nombre: {{presupuesto.usuario.nombre}}</h5>
+                <p class="card-text">{{presupuesto.usuario.email}}</p>
+                <p class="card-text">{{presupuesto.usuario.telefono}}</p>
+            </div>
 
-        <div class="d-flex">
+            <div class="d-flex">
+                <h4>Servicios contratados</h4>
+                @if(presupuesto.servicios[WEB].Web) {
+                <span class="flex-grow">Página web</span>
+                <span class="flex-grow">Páginas presupuestadas: {{presupuesto.extras.cantidadIdiomas}}</span>
+                <span class="flex-grow">Idiomas presupuestados: {{presupuesto.extras.cantidadPaginas}}</span>
+                }
+                @if(presupuesto.servicios[ADS].Ads) {
+                <span>Campaña publicitaria</span>
+                }
+                @if(presupuesto.servicios[SEO].SEO){
+                <span>Consultoría SEO</span>
+                }
+            </div>
 
-            <h4>Servicios contratados</h4>
-            @if(presupuesto.servicios[WEB].Web) {
-            <span class="flex-grow">Página web</span>
-            <span class="flex-grow">Páginas presupuestadas: {{presupuesto.extras.cantidadIdiomas}}</span>
-            <span class="flex-grow">Idiomas presupuestados: {{presupuesto.extras.cantidadPaginas}}</span>
-            }
-            @if(presupuesto.servicios[ADS].Ads) {
-            <span>Campaña publicitaria</span>
-            }
-            @if(presupuesto.servicios[SEO].SEO){
-            <span>Consultoría SEO</span>
-            }
-        </div>
-
-        <div class="text-center">
-            <h3 class="price">Total presupuesto: {{presupuesto.monto}}</h3>
+            <div class="text-center">
+                <h3 class="price">Total presupuesto: {{presupuesto.monto}}</h3>
+            </div>
         </div>
     </div>
+    }
 </div>
-}
