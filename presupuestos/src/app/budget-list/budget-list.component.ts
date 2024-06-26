@@ -1,12 +1,15 @@
 import { Component, Input, signal } from '@angular/core';
 import { BudgetService } from '../services/budget.service';
 import { iPresupuesto } from '../models/budget';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ActivatedRoute, Params } from "@angular/router";
+
 
 @Component({
   selector: 'app-budget-list',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './budget-list.component.html',
   styleUrl: './budget-list.component.css'
 })
@@ -23,13 +26,12 @@ export class BudgetListComponent {
     nombre: new FormControl('')
   })
 
-  constructor(private budgetService: BudgetService) { }
+  constructor(private budgetService: BudgetService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   //presupuestosList = signal(this.userPresupuestos);
 
   ngOnInit(): void {
-    this.userPresupuestos = this.budgetService.getPrespuestos();
-    console.log(this.userPresupuestos);
+    this.userPresupuestos = this.budgetService.getPresupuestos();
   }
 
   ordenarPorNombre(): void {
@@ -88,13 +90,33 @@ export class BudgetListComponent {
     this.userPresupuestos = arrayOrdenado;
   }
 
-  buscarNombre(event: any): void {
+  buscarNombre(event?: any): void {
     console.log(event);
     const nombre = this.buscadorForm.value.nombre;
-    if (nombre) {
-      const arrayDePaso = this.userPresupuestos.filter((presupuesto) => presupuesto.usuario.nombre.includes(nombre));
+    if (nombre !== '') {
+      const arrayDePaso = this.userPresupuestos.filter((presupuesto) => presupuesto.usuario.nombre.includes(nombre!));
       this.userPresupuestos = arrayDePaso;
+    } else {
+      this.userPresupuestos = this.budgetService.getPresupuestos();
     }
+  }
+
+  volverHome(): void {
+    this.router.navigate(['home']);
+  }
+
+
+  irDetalle(usuario: string, monto: number, lenguajes: number, paginas: number): void {
+    this.router.navigate([
+      'detalle/user',
+      usuario,
+      'monto',
+      monto,
+      'lang',
+      lenguajes,
+      'paginas',
+      paginas
+    ]);
   }
 
 }

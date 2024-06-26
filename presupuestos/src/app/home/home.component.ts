@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BudgetService } from '../services/budget.service';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators, } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
 import { PanelComponent } from '../panel/panel.component';
 import { iPresupuesto } from '../models/budget';
 import { BudgetListComponent } from '../budget-list/budget-list.component';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class HomeComponent {
 
-  constructor(private budgetService: BudgetService) { }
+  constructor(private budgetService: BudgetService, private router: Router) { }
 
   monto: number = 0;
   presupuesto: iPresupuesto = {
@@ -73,5 +74,9 @@ export class HomeComponent {
   cargarPresupuesto(event: any): any {
     console.log("se actualiza el presupuesto", event);
     this.monto = this.budgetService.calcularPresupuesto(this.presupuestoForm.value);
+  }
+
+  goToLista(): void {
+    this.router.navigate(['/lista']);
   }
 }

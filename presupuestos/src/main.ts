@@ -1,12 +1,22 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
-import { provideRouter } from '@angular/router';
+import { provideRouter, Route, RouterModule } from '@angular/router';
 import { HomeComponent } from './app/home/home.component';
+import { Component, importProvidersFrom } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BudgetListComponent } from './app/budget-list/budget-list.component';
+import { DetalleComponent } from './app/detalle/detalle.component';
 
-const routes = [
-  { path: '', component: HomeComponent }
+const routes: Route[] = [
+  { path: 'home', component: HomeComponent },
+  { path: 'lista', component: BudgetListComponent },
+  { path: 'detalle/user:user/monto:monto/lang:idiomas/paginas:paginas', component: DetalleComponent }
 ];
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(routes),
+    importProvidersFrom(),
+  ],
+});

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { BudgetService } from './services/budget.service';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -9,7 +9,8 @@ import { ModalComponent } from './shared/modal/modal.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent, ReactiveFormsModule, PanelComponent, ModalComponent],
+  imports: [RouterModule, HomeComponent, ReactiveFormsModule, PanelComponent, ModalComponent
+  ],
   template: '<app-panel></app-panel>',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

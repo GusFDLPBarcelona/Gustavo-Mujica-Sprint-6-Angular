@@ -57,8 +57,7 @@ export class BudgetService {
     return this.extras;
   };
 
-  getPrespuestos(): iPresupuesto[] {
-
+  getPresupuestos(): iPresupuesto[] {
     return this.listaPresupuestosTotal;
   }
 
