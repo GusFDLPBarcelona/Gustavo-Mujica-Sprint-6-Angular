@@ -4,6 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators, } from '@angul
 import { PanelComponent } from '../panel/panel.component';
 import { iPresupuesto } from '../models/budget';
 import { BudgetListComponent } from '../budget-list/budget-list.component';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',

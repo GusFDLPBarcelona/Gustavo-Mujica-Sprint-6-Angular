@@ -25,7 +25,7 @@ export class BudgetListComponent {
 
   constructor(private budgetService: BudgetService) { }
 
-  presupuestosList = signal(this.userPresupuestos);
+  //presupuestosList = signal(this.userPresupuestos);
 
   ngOnInit(): void {
     this.userPresupuestos = this.budgetService.getPrespuestos();
