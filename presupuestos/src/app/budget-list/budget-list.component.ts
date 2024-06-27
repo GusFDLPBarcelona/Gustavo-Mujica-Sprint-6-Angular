@@ -93,12 +93,7 @@ export class BudgetListComponent {
   buscarNombre(event?: any): void {
     console.log(event);
     const nombre = this.buscadorForm.value.nombre;
-    if (nombre !== '') {
-      const arrayDePaso = this.userPresupuestos.filter((presupuesto) => presupuesto.usuario.nombre.includes(nombre!));
-      this.userPresupuestos = arrayDePaso;
-    } else {
-      this.userPresupuestos = this.budgetService.getPresupuestos();
-    }
+    this.userPresupuestos = this.budgetService.buscarPorNombre(nombre!)
   }
 
   volverHome(): void {

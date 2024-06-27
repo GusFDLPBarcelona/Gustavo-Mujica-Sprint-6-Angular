@@ -78,4 +78,17 @@ export class BudgetService {
     console.log(presupuestoGuardar);
     return [];
   }
+
+  buscarPorNombre(nombre: string): iPresupuesto[] {
+    let array = [];
+    if (nombre === '') {
+      return this.listaPresupuestosTotal;
+    } else {
+      array = this.listaPresupuestosTotal.filter((presupuesto) =>
+        presupuesto.usuario.nombre.includes(nombre)
+      );
+    }
+
+    return array;
+  }
 }
