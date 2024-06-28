@@ -101,19 +101,18 @@ export class BudgetListComponent {
   }
 
 
-  irDetalle(usuario: string, monto: number, lenguajes: number, paginas: number): void {
-    this.router.navigate([
-      'detalle/user',
-      usuario,
-      'monto',
-      monto,
-      'lang',
-      lenguajes,
-      'paginas',
-      paginas
-    ]);
+  irDetalle(usuario: string, monto: number, lenguajes: number, paginas: number, servicios: any[]): void {
+
+    console.log("servicios", servicios);
+    const web = servicios[0] ?? false;
+    const ads = servicios[1] ?? false;
+    const seo = servicios[3] ?? false;
+    const url = `detalle/user/${usuario}/web/${web}/ads/${ads}/seo/${seo}/monto/${monto}/lang/${lenguajes}/paginas/${paginas}`;
+    console.log(url);
+    this.router.navigate([url]);
   }
 
 }
+
 
 

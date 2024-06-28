@@ -15,6 +15,7 @@ export class DetalleComponent {
   lang!: number;
   paginas!: number;
 
+
   constructor(private route: ActivatedRoute) { }
 
 
@@ -22,8 +23,9 @@ export class DetalleComponent {
     this.route.paramMap.subscribe(params => {
       this.user = params.get('user')!;
       this.monto = +params.get('monto')!;
-      this.lang = +params.get('lang')!;
+      this.lang = +params.get('lenguajes')!;
       this.paginas = +params.get('paginas')!;
+
     });
   }
 }
