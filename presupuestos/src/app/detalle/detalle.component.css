@@ -1,0 +1,49 @@
+.custom-double-height {
+    height: calc(2 * 100px); 
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.align-nav-right {
+    justify-content: flex-end !important;
+}
+
+.container-nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-control.rounded.mw-100 {
+    border-color: rgb(0, 174, 255) !important;
+}
+
+.card {
+    position: relative; 
+    overflow: hidden;
+    border-radius: 20px; 
+    
+}
+
+.custom-image {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    z-index: 0; 
+}
+
+.card-title, .card-text {
+    position: relative; 
+    z-index: 1; 
+    color: rgb(0, 0, 0); 
+    font-weight: 900;
+    font-family: Arial, sans-serif;
+}
+
+.price {
+    margin-top: 27px;
+    justify-content: center;
+}

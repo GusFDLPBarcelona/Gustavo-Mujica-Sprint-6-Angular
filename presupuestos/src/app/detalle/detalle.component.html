@@ -1,34 +1,47 @@
-<div>
-    <h2>Listado de presupuesto por usuarios</h2>
+<div class="container mb-4 mt-5">
+    <div class="card shadow mb-4" style="width: 100%">
+        <div class="card-body custom-double-height d-flex justify-content-center align-items-center">
+            <div>
 
-    <div class="card shadow-sm mb-4">
+                <h3 class="card-title">Copia la Url del navegador para enviar el presupuesto.</h3>
+                <img src="assets/radiant-gradient.svg" alt="listado" class="custom-image" />
 
-        <div class="card-body d-flex justify-content-between align-items-center">
-            <div class="text-left">
-                <h5 class="card-title">Nombre: {{user}}</h5>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-            </div>
-
-
-            <div class="d-flex">
-                <h4>Servicios contratados</h4>
-
-                <span class="flex-grow">Página web</span>
-                <span class="flex-grow">Páginas presupuestadas: {{paginas}}</span>
-                <span class="flex-grow">Idiomas presupuestados: {{lang}}</span>
-
-
-                <span>Campaña publicitaria</span>
-
-
-                <span>Consultoría SEO</span>
-
-            </div>
-            <div class="text-center">
-                <h3 class="price">Total presupuesto: {{monto}}</h3>
             </div>
         </div>
-    </div>
+        <div class="card shadow mb-4">
 
-</div>
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div class="text-left">
+                    <h5 class="text-center">Presupuesto de:</h5>
+                    <h5 class="text-center">{{user}}</h5>
+                    <p class="card-text"></p>
+                    <p class="card-text"></p>
+                </div>
+
+
+                <div class="d-flex">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>Servicios:</h4>
+                        </div>
+                        <div class="col">
+                            <span class="d-block">Página web</span>
+                            <span class="d-block">Páginas presupuestadas: {{paginas}}</span>
+                            <span class="d-block">Idiomas presupuestados: {{lang}}</span>
+                        </div>
+
+                        <div class="col">
+                            <span class="d-block">Campaña publicitaria</span>
+                        </div>
+
+                        <div class="col">
+                            <span class="d-block">Consultoría SEO</span>
+                        </div>
+
+                    </div>
+                    <div class="text-center">
+                        <h3 class="price">Total presupuestado: {{monto}}€</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
