@@ -1,48 +1,74 @@
-<div>
-    <h2>Listado de presupuesto por usuarios</h2>
-    <nav class="d-flex flex-grow">
-        <button (click)="ordenarPorNombre()">Ordenar por nombre</button>
-        <button (click)="ordenarPorFecha()">Ordenar por fecha</button>
-        <button (click)="ordenarPorMonto()">Ordenar por monto</button>
-        <button (click)="volverHome()">Volver</button>
-        <div class="input-group">
-            <form [formGroup]="buscadorForm">
-                <input type="text" class="form-control rounded mw-100" placeholder="Search" aria-label="Search"
-                    (change)="buscarNombre($event)" formControlName="nombre" />
-            </form>
-        </div>
-    </nav>
-
-    @for (presupuesto of userPresupuestos; track presupuesto) {
-    <div class="card shadow-sm mb-4"
-        (click)="irDetalle(presupuesto.usuario.nombre, presupuesto.monto, presupuesto.extras.cantidadIdiomas,
-    presupuesto.extras.cantidadPaginas, [presupuesto.servicios[WEB].Web, presupuesto.servicios[ADS].Ads, presupuesto.servicios[SEO].SEO])">
-        <div class="card-body d-flex justify-content-between align-items-center">
-            <div class="text-left">
-                <h5 class="card-title">Nombre: {{presupuesto.usuario.nombre}}</h5>
-                <p class="card-text">{{presupuesto.usuario.email}}</p>
-                <p class="card-text">{{presupuesto.usuario.telefono}}</p>
-            </div>
-
-            <div class="d-flex">
-                <h4>Servicios contratados</h4>
-                @if(presupuesto.servicios[WEB].Web) {
-                <span class="flex-grow">Página web</span>
-                <span class="flex-grow">Páginas presupuestadas: {{presupuesto.extras.cantidadIdiomas}}</span>
-                <span class="flex-grow">Idiomas presupuestados: {{presupuesto.extras.cantidadPaginas}}</span>
-                }
-                @if(presupuesto.servicios[ADS].Ads) {
-                <span>Campaña publicitaria</span>
-                }
-                @if(presupuesto.servicios[SEO].SEO){
-                <span>Consultoría SEO</span>
-                }
-            </div>
-
-            <div class="text-center">
-                <h3 class="price">Total presupuesto: {{presupuesto.monto}}</h3>
+<div class="container mb-4 mt-5">
+    <div class="card shadow mb-4" style="width: 100%">
+        <div class="card-body custom-double-height d-flex justify-content-center align-items-center">
+            <div>
+                <h3 class="card-title">Listado de presupuestos</h3>
             </div>
         </div>
     </div>
+    <div class="container-nav mb-4 mt-4">
+        <nav class="d-flex flex-grow mt-4">
+            <button type="button" class="btn btn-outline-secondary me-3" (click)="ordenarPorNombre()">Nombre</button>
+            <button type="button" class="btn btn-outline-secondary me-3" (click)="ordenarPorFecha()">Fecha</button>
+            <button type="button" class="btn btn-outline-secondary me-3" (click)="ordenarPorMonto()">Monto</button>
+            <button type="button" class="btn btn-outline-warning me-3" (click)="volverHome()">Volver</button>
+            <div class="input-group">
+                <form [formGroup]="buscadorForm">
+                    <input type="text" class="form-control rounded mw-100" placeholder="Search" aria-label="Search"
+                        (change)="buscarNombre($event)" formControlName="nombre" />
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    @for (presupuesto of userPresupuestos; track presupuesto) {
+
+    <div class="card-body d-flex justify-content-between align-items-center mt-4">
+        <div class="card shadow mb-4" style="width: 100%;"
+            (click)="irDetalle(presupuesto.usuario.nombre, presupuesto.monto, presupuesto.extras.cantidadIdiomas,
+    presupuesto.extras.cantidadPaginas, [presupuesto.servicios[WEB].Web, presupuesto.servicios[ADS].Ads, presupuesto.servicios[SEO].SEO])">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="card-title">{{presupuesto.usuario.nombre}}</h5>
+                    </div>
+                    <div class="col-12">
+                        <p class="card-text">{{presupuesto.usuario.email}}</p>
+                    </div>
+                    <div class="col-12">
+                        <p class="card-text">{{presupuesto.usuario.telefono}}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <h4>Servicios:</h4>
+                    </div>
+                    <div class="col">
+                        @if(presupuesto.servicios[WEB].Web) {
+                        <span class="d-block">Página web</span>
+                        <span class="d-block">Extra idiomas: {{presupuesto.extras.cantidadIdiomas}}</span>
+                        <span class="d-block">Extra páginas: {{presupuesto.extras.cantidadPaginas}}</span>
+                        }
+                    </div>
+                    <div class="col">
+                        @if(presupuesto.servicios[ADS].Ads) {
+                        <span class="d-block">Campaña publicitaria</span>
+                        }
+                    </div>
+                    <div class="col">
+                        @if(presupuesto.servicios[SEO].SEO){
+                        <span class="d-block">Consultoría SEO</span>
+                        }
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h3 class="price">Total presupuesto: {{presupuesto.monto}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
     }
 </div>

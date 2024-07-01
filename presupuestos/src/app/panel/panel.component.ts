@@ -10,7 +10,7 @@ import { iExtra } from '../models/budget';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, ModalComponent],
   templateUrl: './panel.component.html',
-  styleUrls: ['./panel.component.css']
+  styleUrl: './panel.component.css'
 })
 export class PanelComponent {
   @Output() newItemEvent = new EventEmitter<number>();

@@ -1,46 +1,61 @@
-<div class="container">
+<div class="container mt-5">
+    <div class="card shadow mb-4" style="width: 100%">
+        <div class="card-body custom-double-height d-flex justify-content-center align-items-center">
+            <div>
+                <h3 class="card-title">Consigue la mejor calidad</h3>
+            </div>
+        </div>
+    </div>
+
+
     <form [formGroup]="presupuestoForm">
-        <div class="card shadow-sm mb-4" style="width: 100%;">
+        <div class="card shadow mb-4" style="width: 100%;">
             <div class="card-body d-flex justify-content-between align-items-center">
                 <div class="text-left">
                     <h5 class="card-title">Seo</h5>
                     <p class="card-text">Realización de una campaña SEO completa.</p>
                 </div>
-                <div class="text-center">
-                    <h3 class="price">300€</h3>
+                <div class="cards-price-container">
+                    <div class="text-center">
+                        <h3 class="price mt-5">300€</h3>
+                    </div>
                 </div>
                 <div>
-                    <input type="checkbox" class="p-2" (change)="onEventChange()" formControlName="SEO">
+                    <input type="checkbox" class="p-2 me-2" (change)="onEventChange()" formControlName="SEO">
                     <label class="ml-2">Elegir</label>
                 </div>
             </div>
         </div>
-        <div class="card shadow-sm mb-4" style="width: 100%;">
+        <div class="card shadow mb-4" style="width: 100%;">
             <div class="card-body d-flex justify-content-between align-items-center">
                 <div>
                     <h5 class="card-title">Ads</h5>
                     <p class="card-text">Lanzamiento de una campaña de publicidad.</p>
                 </div>
-                <div class="text-center">
-                    <h3 class="price">400€</h3>
+                <div class="cards-price-container">
+                    <div class="text-center">
+                        <h3 class="price me-1 mt-5">400€</h3>
+                    </div>
                 </div>
                 <div>
-                    <input type="checkbox" class="p-2" (change)="onEventChange()" formControlName="Ads">
+                    <input type="checkbox" class="p-2 me-2" (change)="onEventChange()" formControlName="Ads">
                     <label class="ml-2">Elegir</label>
                 </div>
             </div>
         </div>
-        <div class="card shadow-sm mb-4" style="width: 100%;">
+        <div class="card shadow mb-4" style="width: 100%;">
             <div class="card-body d-flex justify-content-between align-items-center">
                 <div>
                     <h5 class="card-title">Web</h5>
                     <p class="card-text">Programación de una web responsiva completa.</p>
                 </div>
-                <div class="text-center">
-                    <h3 class="price">500€</h3>
+                <div class="cards-price-container">
+                    <div class="text-center">
+                        <h3 class="price me-4 mt-5">500€</h3>
+                    </div>
                 </div>
                 <div>
-                    <input type="checkbox" class="p-2" (change)="onEventChange()" formControlName="Web">
+                    <input type="checkbox" class="p-2 me-2" (change)="onEventChange()" formControlName="Web">
                     <label class="ml-2">Elegir</label>
                 </div>
             </div>
@@ -50,18 +65,18 @@
         </div>
     </form>
     <div class="mt-4 text-right contenido-presupuesto">
-        <p>Precio presupuestado: {{ monto }} €</p>
+        <p>Total presupuestado: {{ monto }} €</p>
         <span></span>
     </div>
 
-    <div class="card shadow-sm mb-4">
+    <div class="card shadow mb-4">
         <div class="card-body d-flex justify-content-center align-items-center">
             <form [formGroup]='usuarioForm' class="d-flex justify-content-center align-items-center w-100">
-                <input type="text" formControlName="nombre" placeholder="Nombre" class="form-control mr-2"
+                <input type="text" formControlName="nombre" placeholder="Nombre" class="form-control mr-2 me-3"
                     style="flex: 1;">
-                <input type="number" formControlName="telefono" placeholder="Teléfono" class="form-control mr-2"
+                <input type="number" formControlName="telefono" placeholder="Teléfono" class="form-control mr-2 me-3"
                     style="flex: 1;">
-                <input type="email" formControlName="email" placeholder="Email" class="form-control mr-2"
+                <input type="email" formControlName="email" placeholder="Email" class="form-control mr-2 me-3"
                     style="flex: 1;">
                 <button type="button" class="btn btn-primary" (click)="guardarPresupuesto()" style="height: 100%;">Pedir
                     Presupuesto</button>
@@ -69,7 +84,7 @@
         </div>
     </div>
 
-    <div class="card shadow-sm mb-4">
+    <div class="card shadow mb-4">
         <div class="card-body d-flex justify-content-between align-items-center">
             <button type="button" class="btn btn-primary" (click)="goToLista()">Ver lista</button>
         </div>

@@ -1,0 +1,28 @@
+.custom-double-height {
+    height: calc(2 * 100px); 
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.align-nav-right {
+    justify-content: flex-end !important;
+}
+
+.container-nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-control.rounded.mw-100 {
+    border-color: rgb(0, 174, 255) !important;
+}
+
+.card {
+    border-radius: 20px; 
+}
+
+.card-title {
+    font-weight: 900;
+    font-family: Arial, sans-serif;
+}

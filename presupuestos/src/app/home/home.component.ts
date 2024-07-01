@@ -34,10 +34,10 @@ export class HomeComponent {
     }
   };
   usuarioForm = new FormGroup({
-    nombre: new FormControl('', [Validators.required, Validators.pattern('[A-Z][a-z]')]),
-    telefono: new FormControl('', [Validators.maxLength(9), Validators.minLength(9), Validators.required]),
-    email: new FormControl('', [Validators.email, Validators.required])
-  })
+    nombre: new FormControl('', [Validators.required, Validators.pattern('^[A-Z][a-z]+$')]),
+    telefono: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{9}$')]),
+    email: new FormControl('', [Validators.required, Validators.email])
+  });
   presupuestoForm = new FormGroup({
     SEO: new FormControl(false),
     Ads: new FormControl(false),
