@@ -65,12 +65,12 @@
             }
         </div>
     </form>
-    <div class="mt-3 text-right contenido-presupuesto">
-        <p>Total presupuestado: {{ monto }}€</p>
+    <div class="mt-3 mb-2 text-right contenido-presupuesto">
+        <h2>Total presupuestado: {{ monto }}€</h2>
 
     </div>
 
-    <div class="card shadow mb-4">
+    <div class="card shadow mt-2 mb-4">
         <div class="card-body d-flex justify-content-center align-items-center">
             <form [formGroup]="usuarioForm" class="d-flex justify-content-center align-items-center w-100">
                 <input type="text" formControlName="nombre" placeholder="Nombre" class="form-control mr-2 me-3"
