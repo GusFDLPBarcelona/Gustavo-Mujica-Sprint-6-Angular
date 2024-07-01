@@ -227,3 +227,11 @@ body {
 .panel {
   box-shadow: none;
 }
+
+.contenido-presupuesto p,
+.contenido-presupuesto span {
+    font-weight: bold; /* Negrita */
+    font-family: Arial, sans-serif; /* Fuente Arial */
+    font-size: 1.25em; /* Ajusta el tamaño según sea necesario para igualar a "web", "seo", "ads" */
+    text-align: right; /* Alineación a la derecha */
+}
