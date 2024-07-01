@@ -1,4 +1,4 @@
-<div class="extras-panel">
+<div class="extras-panel container-right">
     <form [formGroup]="extrasForm">
         <div class="extra-item">
             <button type="button" class="botonInfo" (click)="abrirModalPadre('paginas')">
@@ -10,8 +10,12 @@
                 </svg>
             </button>
             <label for="pages">Número de páginas</label>
+            <button type="button" class="btn btn-outline-secondary btn-round"
+                (click)="decrementar('cantidadPaginas')">−</button>
             <input (change)="capturarCambios()" type="number" id="pages" formControlName="cantidadPaginas" min="1"
-                value="1">
+                value="1" class="form-control">
+            <button type="button" class="btn btn-outline-secondary btn-round"
+                (click)="incrementar('cantidadPaginas')">+</button>
         </div>
         <div class="extra-item">
             <button type="button" class="botonInfo" (click)="abrirModalPadre('idiomas')">
@@ -23,8 +27,12 @@
                 </svg>
             </button>
             <label for="languages">Número de idiomas</label>
+            <button type="button" class="btn btn-outline-secondary btn-round"
+                (click)="decrementar('cantidadIdiomas')">−</button>
             <input (change)="capturarCambios()" type="number" id="languages" formControlName="cantidadIdiomas" min="1"
-                value="1">
+                value="1" class="form-control">
+            <button type="button" class="btn btn-outline-secondary btn-round"
+                (click)="incrementar('cantidadIdiomas')">+</button>
         </div>
     </form>
 </div>

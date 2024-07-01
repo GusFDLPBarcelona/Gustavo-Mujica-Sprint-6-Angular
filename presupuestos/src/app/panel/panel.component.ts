@@ -10,7 +10,7 @@ import { iExtra } from '../models/budget';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, ModalComponent],
   templateUrl: './panel.component.html',
-  styleUrl: './panel.component.css'
+  styleUrls: ['./panel.component.css']
 })
 export class PanelComponent {
   @Output() newItemEvent = new EventEmitter<number>();
@@ -33,5 +33,21 @@ export class PanelComponent {
   abrirModalPadre(tipo: string) {
     console.log("abrir padre");
     this.modalComponent?.abrirModal(tipo);
+  }
+
+  incrementar(controlName: string): void {
+    const control = this.extrasForm.get(controlName) as FormControl;
+    if (control) {
+      control.setValue(control.value + 1);
+      this.capturarCambios();
+    }
+  }
+
+  decrementar(controlName: string): void {
+    const control = this.extrasForm.get(controlName) as FormControl;
+    if (control && control.value > 1) {
+      control.setValue(control.value - 1);
+      this.capturarCambios();
+    }
   }
 }
