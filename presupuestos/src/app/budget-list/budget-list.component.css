@@ -25,6 +25,14 @@
     
 }
 
+.card-hover:hover {
+  background-color: #f8f9fa; 
+  box-shadow: 0 5px 15px rgba(0, 129, 80, 0.3); 
+  cursor: pointer; 
+  transform: scale(1.010); 
+  transition: all 0.3s ease-in-out; 
+}
+
 .custom-image {
     position: absolute; 
     top: 0;

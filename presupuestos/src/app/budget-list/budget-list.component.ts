@@ -34,19 +34,21 @@ export class BudgetListComponent {
     this.userPresupuestos = this.budgetService.getPresupuestos();
   }
 
+  ordenAscendentePorNombre: boolean = true;
   ordenarPorNombre(): void {
-    const arrayOrdenado = this.userPresupuestos.sort((a, b) => {
-      if (a.usuario.nombre < b.usuario.nombre) {
-        return -1;
-      }
-      if (a.usuario.nombre > b.usuario.nombre) {
-        return 1;
-      }
-      return 0;
-    });
-    this.userPresupuestos = arrayOrdenado;
-  }
+    if (this.ordenAscendentePorNombre) {
 
+      this.userPresupuestos.sort((a, b) => {
+        return a.usuario.nombre.localeCompare(b.usuario.nombre);
+      });
+    } else {
+
+      this.userPresupuestos.sort((a, b) => {
+        return b.usuario.nombre.localeCompare(a.usuario.nombre);
+      });
+      this.ordenAscendentePorNombre = true;
+    }
+  }
   ordenarPorFecha(): void {
     this.ascendente = !this.ascendente;
     if (!this.ascendente) {
@@ -75,19 +77,16 @@ export class BudgetListComponent {
 
 
   }
+  ordenAscendente: boolean = true;
 
   ordenarPorMonto(): void {
-    const arrayOrdenado = this.userPresupuestos.sort((a, b) => {
-      console.log(a.monto, b.monto);
-      if (a.monto < b.monto) {
-        return -1;
-      }
-      if (a.monto > b.monto) {
-        return 1;
-      }
-      return 0;
-    });
-    this.userPresupuestos = arrayOrdenado;
+    if (this.ordenAscendente) {
+      this.userPresupuestos.sort((a, b) => a.monto - b.monto);
+      this.ordenAscendente = false;
+    } else {
+      this.userPresupuestos.sort((a, b) => b.monto - a.monto);
+      this.ordenAscendente = true;
+    }
   }
 
   buscarNombre(event?: any): void {
