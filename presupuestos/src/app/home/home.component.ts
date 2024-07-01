@@ -20,7 +20,7 @@ export class HomeComponent {
   constructor(private budgetService: BudgetService, private router: Router, private fb: FormBuilder) {
     this.usuarioForm = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(3)]],
-      telefono: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      telefono: ['', [Validators.required, Validators.pattern(/^\d{9}$/)]],
       email: ['', [Validators.required, Validators.email]]
     });
   }
@@ -66,7 +66,6 @@ export class HomeComponent {
       }
       this.budgetService.crearPresupuesto(presupuesto);
     } else {
-      // Marca todos los campos como tocados para mostrar validaciones
       Object.values(this.usuarioForm.controls).forEach(control => {
         control.markAsTouched();
       });
