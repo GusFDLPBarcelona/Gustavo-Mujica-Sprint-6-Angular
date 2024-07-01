@@ -15,8 +15,15 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  usuarioForm: FormGroup<{ nombre: FormControl<string | null>; telefono: FormControl<string | null>; email: FormControl<string | null>; }>;
 
-  constructor(private budgetService: BudgetService, private router: Router) { }
+  constructor(private budgetService: BudgetService, private router: Router, private fb: FormBuilder) {
+    this.usuarioForm = this.fb.group({
+      nombre: ['', [Validators.required, Validators.minLength(3)]],
+      telefono: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      email: ['', [Validators.required, Validators.email]]
+    });
+  }
 
   monto: number = 0;
   presupuesto: iPresupuesto = {
@@ -33,11 +40,7 @@ export class HomeComponent {
       cantidadPaginas: 0
     }
   };
-  usuarioForm = new FormGroup({
-    nombre: new FormControl('', [Validators.required, Validators.pattern('^[A-Z][a-z]+$')]),
-    telefono: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{9}$')]),
-    email: new FormControl('', [Validators.required, Validators.email])
-  });
+
   presupuestoForm = new FormGroup({
     SEO: new FormControl(false),
     Ads: new FormControl(false),
@@ -45,23 +48,29 @@ export class HomeComponent {
   });
 
   guardarPresupuesto(): void {
-    const array: iPresupuesto[] = [];
-    let presupuesto: iPresupuesto = {
-      servicios: [{ 'SEO': this.presupuestoForm.value.SEO }, { 'Ads': this.presupuestoForm.value.Ads }, { 'Web': this.presupuestoForm.value.Web }],
-      usuario: {
-        nombre: this.usuarioForm.value.nombre ?? '',
-        telefono: this.usuarioForm.value.telefono ?? '',
-        email: this.usuarioForm.value.email ?? '',
-        fecha: new Date()
-      },
-      monto: this.monto,
-      extras: {
-        cantidadIdiomas: 0,
-        cantidadPaginas: 0
+    if (this.usuarioForm.valid) {
+      const array: iPresupuesto[] = [];
+      let presupuesto: iPresupuesto = {
+        servicios: [{ 'SEO': this.presupuestoForm.value.SEO }, { 'Ads': this.presupuestoForm.value.Ads }, { 'Web': this.presupuestoForm.value.Web }],
+        usuario: {
+          nombre: this.usuarioForm.value.nombre ?? '',
+          telefono: this.usuarioForm.value.telefono ?? '',
+          email: this.usuarioForm.value.email ?? '',
+          fecha: new Date()
+        },
+        monto: this.monto,
+        extras: {
+          cantidadIdiomas: 0,
+          cantidadPaginas: 0
+        }
       }
+      this.budgetService.crearPresupuesto(presupuesto);
+    } else {
+      // Marca todos los campos como tocados para mostrar validaciones
+      Object.values(this.usuarioForm.controls).forEach(control => {
+        control.markAsTouched();
+      });
     }
-    this.budgetService.crearPresupuesto(presupuesto);
-
   }
 
 

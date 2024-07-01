@@ -47,3 +47,17 @@
     margin-top: 27px;
     justify-content: center;
 }
+
+.volver {
+    position: relative;
+    z-index: 10; 
+    text-align: right;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 10px
+}
+
+.card.shadow.mb-4 {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
