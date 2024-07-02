@@ -35,12 +35,14 @@ export class BudgetListComponent {
   }
 
   ordenAscendentePorNombre: boolean = true;
+
   ordenarPorNombre(): void {
     if (this.ordenAscendentePorNombre) {
 
       this.userPresupuestos.sort((a, b) => {
         return a.usuario.nombre.localeCompare(b.usuario.nombre);
       });
+      this.ordenAscendentePorNombre = false;
     } else {
 
       this.userPresupuestos.sort((a, b) => {
@@ -49,6 +51,7 @@ export class BudgetListComponent {
       this.ordenAscendentePorNombre = true;
     }
   }
+
   ordenarPorFecha(): void {
     this.ascendente = !this.ascendente;
     if (!this.ascendente) {
