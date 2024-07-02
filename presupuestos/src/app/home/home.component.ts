@@ -65,6 +65,12 @@ export class HomeComponent {
         }
       }
       this.budgetService.crearPresupuesto(presupuesto);
+      alert('Presupuesto creado con éxito');
+      this.usuarioForm.reset({
+        nombre: '',
+        telefono: '',
+        email: ''
+      });
     } else {
       Object.values(this.usuarioForm.controls).forEach(control => {
         control.markAsTouched();
