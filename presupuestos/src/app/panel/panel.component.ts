@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, HostListener, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BudgetService } from '../services/budget.service';
@@ -16,6 +16,10 @@ export class PanelComponent {
   @Output() newItemEvent = new EventEmitter<number>();
   @ViewChild('modalComponent') modalComponent?: ModalComponent;
 
+
+
+
+  mouseout = false;
   extras = 0;
   constructor(private budgetService: BudgetService) { }
 
@@ -50,4 +54,5 @@ export class PanelComponent {
       this.capturarCambios();
     }
   }
+
 }

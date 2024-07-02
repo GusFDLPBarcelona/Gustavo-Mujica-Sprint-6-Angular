@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-modal',
   standalone: true,
+  providers: [],
   imports: [CommonModule],
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent {
-  modalVisible = false;
+  @Input() modalVisible: boolean = false;
   titulo: string = '';
   contenido: string = '';
 
@@ -29,6 +30,7 @@ export class ModalComponent {
   }
 
   cerrarModal(): void {
+    console.log("cerrar modal...");
     this.modalVisible = false;
   }
 }

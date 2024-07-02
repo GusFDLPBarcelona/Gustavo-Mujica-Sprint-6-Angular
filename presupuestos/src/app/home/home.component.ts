@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { BudgetService } from '../services/budget.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
 import { PanelComponent } from '../panel/panel.component';
@@ -6,16 +6,17 @@ import { iPresupuesto } from '../models/budget';
 import { BudgetListComponent } from '../budget-list/budget-list.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ModalComponent } from '../shared/modal/modal.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ReactiveFormsModule, PanelComponent, BudgetListComponent],
+  imports: [ReactiveFormsModule, PanelComponent, BudgetListComponent, ModalComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  usuarioForm: FormGroup<{ nombre: FormControl<string | null>; telefono: FormControl<string | null>; email: FormControl<string | null>; }>;
+  usuarioForm: FormGroup<{ nombre: FormControl<string | null>; telefono: FormControl<string | null>; email: FormControl<string | null>; }>; @ViewChild('modalComponent', { static: false }) modalComponent?: ModalComponent;
 
   constructor(private budgetService: BudgetService, private router: Router, private fb: FormBuilder) {
     this.usuarioForm = this.fb.group({
@@ -46,6 +47,7 @@ export class HomeComponent {
     Ads: new FormControl(false),
     Web: new FormControl(false)
   });
+
 
   guardarPresupuesto(): void {
     if (this.usuarioForm.valid) {
@@ -93,4 +95,12 @@ export class HomeComponent {
   goToLista(): void {
     this.router.navigate(['/lista']);
   }
+
+
+  cerrarModal(): void {
+    if (this.modalComponent !== undefined) {
+      this.modalComponent?.cerrarModal();
+    }
+  }
+
 }
