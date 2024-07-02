@@ -22,7 +22,7 @@ export class HomeComponent {
     this.usuarioForm = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       telefono: ['', [Validators.required, Validators.pattern(/^\d{9}$/)]],
-      email: ['', [Validators.required, Validators.email]]
+      email: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]{3}$/)]]
     });
   }
 

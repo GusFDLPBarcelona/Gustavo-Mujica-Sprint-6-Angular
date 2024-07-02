@@ -55,3 +55,23 @@
   font-size: 0.7em;
 
 }
+
+.usuario {
+font-weight: 800;
+font-family: Arial, sans-serif;
+}
+
+.servicio {
+font-weight: 800;
+font-family: Arial, sans-serif;
+}
+
+.detalle {
+font-weight: 700;
+font-family: Arial, sans-serif;
+}
+
+.price {
+    font-weight: 900;
+    font-family: Arial, sans-serif;
+}

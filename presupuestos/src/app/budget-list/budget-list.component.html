@@ -45,22 +45,22 @@
 
                 <div class="row justify-content-center align-items-center">
                     <div class="col-12">
-                        <h4 class="services-header">Servicios:</h4>
+                        <h4 class="usuario">Servicios:</h4>
                     </div>
                     <div class="col-12 centered-services">
                         @if(presupuesto.servicios[SEO].SEO){
                         <div>
-                            <span class="d-block">SEO</span>
+                            <span class="d-block card-text">SEO</span>
                         </div>
                         }
                         @if(presupuesto.servicios[ADS].Ads) {
                         <div>
-                            <span class="d-block">Ads</span>
+                            <span class="d-block card-text">Ads</span>
                         </div>
                         }
                         @if(presupuesto.servicios[WEB].Web) {
                         <div>
-                            <span class="d-block">Web (extra Idiomas: {{presupuesto.extras.cantidadIdiomas}},
+                            <span class="d-block card-text">Web (extra Idiomas: {{presupuesto.extras.cantidadIdiomas}},
                                 extra páginas:
                                 {{presupuesto.extras.cantidadPaginas}})</span>
                         </div>
@@ -70,7 +70,8 @@
 
 
                 <div class="text-center">
-                    <h3 class="price">Total presupuestado: {{presupuesto.monto}}<span class="small-euro">€</span></h3>
+                    <h4 class="price">Total presupuestado: {{presupuesto.monto}}<span class="small-euro">€</span>
+                    </h4>
                 </div>
             </div>
         </div>
