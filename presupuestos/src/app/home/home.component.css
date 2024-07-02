@@ -90,3 +90,11 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.fin {
+  color:aliceblue;
+}
+
+.small-euro {
+  font-size: 0.7em; 
+}

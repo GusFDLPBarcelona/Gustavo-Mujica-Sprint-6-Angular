@@ -21,8 +21,7 @@
 .card {
     position: relative; 
     overflow: hidden;
-    border-radius: 20px; 
-    
+    border-radius: 20px;
 }
 
 .custom-image {
@@ -60,4 +59,34 @@
 .card.shadow.mb-4 {
     margin-left: 1rem;
     margin-right: 1rem;
+}
+
+.price {
+    font-weight: 900;
+    font-family: Arial, sans-serif;
+}
+
+.small-euro {
+  font-size: 0.7em;
+
+}
+
+.servicio {
+font-weight: 800;
+font-family: Arial, sans-serif;
+}
+
+.detalle {
+font-weight: 700;
+font-family: Arial, sans-serif;
+}
+
+.para {
+font-weight: 700;
+font-family: Arial, sans-serif;
+}
+
+.usuario {
+font-weight: 800;
+font-family: Arial, sans-serif;
 }

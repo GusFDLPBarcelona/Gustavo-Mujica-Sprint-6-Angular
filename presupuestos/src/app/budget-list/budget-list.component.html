@@ -43,31 +43,34 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row justify-content-center align-items-center">
                     <div class="col-12">
-                        <h4>Servicios:</h4>
+                        <h4 class="services-header">Servicios:</h4>
                     </div>
-                    <div class="col">
-                        @if(presupuesto.servicios[WEB].Web) {
-                        <span class="d-block">Página web</span>
-                        <span class="d-block">Extra idiomas: {{presupuesto.extras.cantidadIdiomas}}</span>
-                        <span class="d-block">Extra páginas: {{presupuesto.extras.cantidadPaginas}}</span>
-                        }
-                    </div>
-                    <div class="col">
-                        @if(presupuesto.servicios[ADS].Ads) {
-                        <span class="d-block">Campaña publicitaria</span>
-                        }
-                    </div>
-                    <div class="col">
+                    <div class="col-12 centered-services">
                         @if(presupuesto.servicios[SEO].SEO){
-                        <span class="d-block">Consultoría SEO</span>
+                        <div>
+                            <span class="d-block">SEO</span>
+                        </div>
+                        }
+                        @if(presupuesto.servicios[ADS].Ads) {
+                        <div>
+                            <span class="d-block">Ads</span>
+                        </div>
+                        }
+                        @if(presupuesto.servicios[WEB].Web) {
+                        <div>
+                            <span class="d-block">Web (extra Idiomas: {{presupuesto.extras.cantidadIdiomas}},
+                                extra páginas:
+                                {{presupuesto.extras.cantidadPaginas}})</span>
+                        </div>
                         }
                     </div>
                 </div>
 
+
                 <div class="text-center">
-                    <h3 class="price">Total presupuestado: {{presupuesto.monto}}€</h3>
+                    <h3 class="price">Total presupuestado: {{presupuesto.monto}}<span class="small-euro">€</span></h3>
                 </div>
             </div>
         </div>
