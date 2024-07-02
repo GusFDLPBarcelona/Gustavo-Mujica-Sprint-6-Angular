@@ -1,27 +1,66 @@
-# Presupuestos
+# Gustavo-Mujica-Sprint-6-Angular
+# Aplicación de Gestión de Presupuestos!!!
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+## Descripción 📄
 
-## Development server
+Esta es una aplicación de gestión de presupuestos desarrollada en Angular. Permite a los usuarios crear, guardar, compartir y administrar presupuestos.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Características ✨
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Crear presupuestos con diferentes servicios y costos asociados.
+- Guardar los presupuestos en el almacenamiento local del navegador.
+- Visualizar una lista de presupuestos guardados.
+- Ordenar y buscar presupuestos en la lista.
+- Compartir presupuestos a través de una URL.
+- Recrear presupuestos a partir de URL compartidas.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Tecnologías Utilizadas 💻
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- TypeScript
+- HTML5
+- CSS 
+- [Angular CLI](https://github.com/angular/angular-cli) version 18.
 
-## Running end-to-end tests
+## Requisitos 📋
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Node.js y npm instalados en tu sistema. Puedes descargarlos desde [nodejs.org](https://nodejs.org/).
+- Angular CLI instalado globalmente. Puedes instalarlo con el siguiente comando:
 
-## Further help
+```bash
+npm install -g @angular/cli
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Instalación 🛠️
+
+1. Clona el repositorio:
+```bash
+git clone https://github.com/iviruu/angular-sprin_6.git
+```
+
+2. Ingresa al directorio del proyecto:
+```bash
+cd presupuestos
+```
+
+4. Instala las dependencias:
+```bash
+npm install
+```
+
+
+## Ejecución ▶️
+Ejecuta la aplicación con el siguiente comando:
+```bash
+ng s -o
+
+Desde la consola de VSC: npm start
+```
+
+## Interactúa con la aplicación según sea necesario:
+- Crea nuevos presupuestos.
+- Ordena y selecciona presupuestos creados.
+- Comparte presupuestos utilizando las URL generadas.
+- Recrea presupuestos a partir de URL compartidas.
