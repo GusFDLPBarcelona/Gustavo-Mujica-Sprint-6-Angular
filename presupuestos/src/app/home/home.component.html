@@ -1,5 +1,5 @@
-<div class="container mt-5">
-    <div class="card shadow mb-4 header" style="width: 100%">
+<div class="container mt-5" style="width: 80%; margin: auto;">
+    <div class="card shadow mb-4 header" style="width: 80%;  margin: auto;">
         <div class="card-body custom-double-height d-flex justify-content-center align-items-center">
             <div>
                 <h3 class="card-title">Consigue la mejor calidad</h3>
@@ -10,7 +10,7 @@
 
 
     <form [formGroup]="presupuestoForm">
-        <div class="card shadow mb-4 card-hover" style="width: 100%;">
+        <div class="card shadow mb-4 card-hover" style="width: 80%;  margin: auto;">
             <div class="card-body d-flex justify-content-between align-items-center">
                 <div class="text-left">
                     <h5 class="card-title">Seo</h5>
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <div class="card shadow mb-4 card-hover" style="width: 100%;">
+        <div class="card shadow mb-4 card-hover" style="width: 80%;  margin: auto;">
             <div class="card-body d-flex justify-content-between align-items-center">
                 <div>
                     <h5 class="card-title">Ads</h5>
@@ -44,7 +44,7 @@
                 </div>
             </div>
         </div>
-        <div class="card shadow mb-4 card-hover" style="width: 100%;" (mouseout)="cerrarModal();">
+        <div class="card shadow mb-4 card-hover" style="width: 80%;  margin: auto;" (mouseout)="cerrarModal();">
             <div class="card-body d-flex justify-content-between align-items-center">
                 <div>
                     <h5 class="card-title">Web</h5>
@@ -65,12 +65,12 @@
             }
         </div>
     </form>
-    <div class="mt-3 mb-2 text-right contenido-presupuesto">
+    <div class="mt-3 mb-2 text-right contenido-presupuesto" style="width: 80%; margin: auto;">
         <h2>Total presupuestado: {{ monto }}<span class="small-euro">€</span></h2>
 
     </div>
 
-    <div class="card shadow mt-2 mb-4">
+    <div class="card shadow mt-2 mb-4" style="width: 80%; margin: auto;">
         <div class="card-body d-flex justify-content-center align-items-center">
             <form [formGroup]="usuarioForm" class="d-flex justify-content-center align-items-center w-100">
                 <input type="text" formControlName="nombre" placeholder="Nombre" class="form-control mr-2 me-3"
@@ -91,7 +91,7 @@
         </div>
     </div>
 
-    <div class="card shadow mb-4">
+    <div class="card shadow mb-4" style="width: 80%; margin: auto;">
         <div class="card-body d-flex justify-content-between align-items-center">
             <button type="button" class="btn btn-primary" (click)="goToLista()">Ver lista</button>
         </div>
