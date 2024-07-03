@@ -14,7 +14,9 @@ export class DetalleComponent {
   monto!: number;
   lang!: number;
   paginas!: number;
-
+  web!: boolean;
+  ads!: boolean;
+  seo!: boolean;
 
   constructor(private route: ActivatedRoute) { }
 
@@ -23,9 +25,11 @@ export class DetalleComponent {
     this.route.paramMap.subscribe(params => {
       this.user = params.get('user')!;
       this.monto = +params.get('monto')!;
-      this.lang = +params.get('lenguajes')!;
+      this.lang = +params.get('lang')!;
       this.paginas = +params.get('paginas')!;
-
+      this.web = params.get('web') === 'true';
+      this.ads = params.get('ads') === 'true';
+      this.seo = params.get('seo') === 'true';
     });
   }
 }
