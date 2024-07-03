@@ -3,14 +3,14 @@
 
 ## Descripción 📄
 
-Esta es una aplicación de gestión de presupuestos desarrollada en Angular. Permite a los usuarios crear, guardar, compartir y administrar presupuestos.
+Esta es una aplicación de gestión de presupuestos desarrollada en Angular. Permite a los usuarios crear,, ordenar y compartir presupuestos.
 
 
 ## Características ✨
 
 - Crear presupuestos con diferentes servicios y costos asociados.
 - Guardar los presupuestos en el almacenamiento local del navegador.
-- Visualizar una lista de presupuestos guardados.
+- Visualizar una lista de presupuestos creados.
 - Ordenar y buscar presupuestos en la lista.
 - Compartir presupuestos a través de una URL.
 - Recrear presupuestos a partir de URL compartidas.
@@ -36,9 +36,8 @@ npm install -g @angular/cli
 ## Instalación 🛠️
 
 1. Clona el repositorio:
-```bash
-git clone https://github.com/iviruu/angular-sprin_6.git
-```
+
+https://github.com/GusFDLPBarcelona/Gustavo-Mujica-Sprint-6-Angular.git
 
 2. Ingresa al directorio del proyecto:
 ```bash
