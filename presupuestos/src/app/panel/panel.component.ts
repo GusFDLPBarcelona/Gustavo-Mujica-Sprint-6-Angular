@@ -35,7 +35,6 @@ export class PanelComponent {
   }
 
   abrirModalPadre(tipo: string) {
-    console.log("abrir padre");
     this.modalComponent?.abrirModal(tipo);
   }
 

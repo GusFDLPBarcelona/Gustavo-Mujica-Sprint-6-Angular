@@ -51,7 +51,6 @@ export class BudgetService {
       this.extras = 0;
     } else {
       this.extras = (presupuesto.cantidadPaginas * presupuesto.cantidadIdiomas * 30);
-      console.log("extras", this.extras);
     }
 
     return this.extras;
@@ -75,7 +74,6 @@ export class BudgetService {
     }
 
     this.listaPresupuestosTotal.push(presupuestoGuardar);
-    console.log(presupuestoGuardar);
     return [];
   }
 

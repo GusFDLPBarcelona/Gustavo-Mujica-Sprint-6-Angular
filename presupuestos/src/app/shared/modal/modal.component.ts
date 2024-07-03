@@ -15,7 +15,6 @@ export class ModalComponent {
   contenido: string = '';
 
   abrirModal(tipo: string): void {
-    console.log("abrir hijo", tipo);
     if (tipo === 'paginas') {
       this.titulo = 'Número de páginas';
       this.contenido = 'Elija la cantidad de páginas que desea en su sitio web. ' +
@@ -26,11 +25,9 @@ export class ModalComponent {
         'El presupuesto inicial incluye una página y un idioma.';
     }
     this.modalVisible = true;
-    console.log(this.modalVisible);
   }
 
   cerrarModal(): void {
-    console.log("cerrar modal...");
     this.modalVisible = false;
   }
 }

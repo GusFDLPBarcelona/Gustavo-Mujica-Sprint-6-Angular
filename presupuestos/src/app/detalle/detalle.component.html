@@ -14,9 +14,16 @@
                 </div>
                 <div class="d-flex flex-column align-items-start">
                     <h4 class="servicio">Servicios:</h4>
+                    @if(seo) {
                     <span class="detalle">SEO</span>
+                    }
+                    @if(ads) {
                     <span class="detalle">Ads</span>
+                    }
+                    @if(web) {
                     <span class="detalle">Web (extra páginas: {{paginas}}, extra idiomas: {{lang}})</span>
+                    }
+
                 </div>
                 <div class="text-right">
                     <h4 class="price">Total presupuestado: {{monto}}<span class="small-euro">€</span></h4>

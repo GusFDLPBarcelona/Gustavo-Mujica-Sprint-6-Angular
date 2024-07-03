@@ -88,7 +88,6 @@ export class HomeComponent {
 
 
   cargarPresupuesto(event: any): any {
-    console.log("se actualiza el presupuesto", event);
     this.monto = this.budgetService.calcularPresupuesto(this.presupuestoForm.value);
   }
 
