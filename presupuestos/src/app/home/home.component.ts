@@ -22,7 +22,7 @@ export class HomeComponent {
     this.usuarioForm = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       telefono: ['', [Validators.required, Validators.pattern(/^\d{9}$/)]],
-      email: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]{3}$/)]]
+      email: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/)]]
     });
   }
 
@@ -68,11 +68,7 @@ export class HomeComponent {
         };
         this.budgetService.crearPresupuesto(presupuesto);
         alert('Presupuesto creado con éxito');
-        this.usuarioForm.reset({
-          nombre: '',
-          telefono: '',
-          email: ''
-        });
+        this.resetFormularioCompleto();
       } else {
         alert('Selecciona al menos un servicio.');
       }
@@ -83,6 +79,10 @@ export class HomeComponent {
     }
   }
 
+  resetFormularioCompleto(): void {
+    this.usuarioForm.reset();
+    this.presupuestoForm.reset();
+  }
 
 
   onEventChange() {
