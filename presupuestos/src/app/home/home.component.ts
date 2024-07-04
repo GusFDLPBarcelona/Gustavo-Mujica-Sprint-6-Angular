@@ -51,28 +51,31 @@ export class HomeComponent {
 
   guardarPresupuesto(): void {
     if (this.usuarioForm.valid) {
-      const array: iPresupuesto[] = [];
-      let presupuesto: iPresupuesto = {
-        servicios: [{ 'SEO': this.presupuestoForm.value.SEO }, { 'Ads': this.presupuestoForm.value.Ads }, { 'Web': this.presupuestoForm.value.Web }],
-        usuario: {
-          nombre: this.usuarioForm.value.nombre ?? '',
-          telefono: this.usuarioForm.value.telefono ?? '',
-          email: this.usuarioForm.value.email ?? '',
-          fecha: new Date()
-        },
-        monto: this.monto,
-        extras: {
-          cantidadIdiomas: 0,
-          cantidadPaginas: 0
-        }
+      if (this.presupuestoForm.value.SEO || this.presupuestoForm.value.Ads || this.presupuestoForm.value.Web) {
+        let presupuesto: iPresupuesto = {
+          servicios: [{ 'SEO': this.presupuestoForm.value.SEO }, { 'Ads': this.presupuestoForm.value.Ads }, { 'Web': this.presupuestoForm.value.Web }],
+          usuario: {
+            nombre: this.usuarioForm.value.nombre ?? '',
+            telefono: this.usuarioForm.value.telefono ?? '',
+            email: this.usuarioForm.value.email ?? '',
+            fecha: new Date()
+          },
+          monto: this.monto,
+          extras: {
+            cantidadIdiomas: 0,
+            cantidadPaginas: 0
+          }
+        };
+        this.budgetService.crearPresupuesto(presupuesto);
+        alert('Presupuesto creado con éxito');
+        this.usuarioForm.reset({
+          nombre: '',
+          telefono: '',
+          email: ''
+        });
+      } else {
+        alert('Selecciona al menos un servicio.');
       }
-      this.budgetService.crearPresupuesto(presupuesto);
-      alert('Presupuesto creado con éxito');
-      this.usuarioForm.reset({
-        nombre: '',
-        telefono: '',
-        email: ''
-      });
     } else {
       Object.values(this.usuarioForm.controls).forEach(control => {
         control.markAsTouched();
