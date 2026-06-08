@@ -1,28 +1,13 @@
-import { Component, Input } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { BudgetService } from './services/budget.service';
-import { ReactiveFormsModule } from '@angular/forms';
-import { PanelComponent } from './panel/panel.component';
-import { ModalComponent } from './shared/modal/modal.component';
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, HomeComponent, ReactiveFormsModule, PanelComponent, ModalComponent
-  ],
-  template: '<app-panel></app-panel>',
+  imports: [RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'presupuestos';
-  montoExtra = 0;
-  @Input('extras') extras?: number;
-
-  constructor(private budgetService: BudgetService) { }
-
-  ngOnInit() {
-
-  }
 }

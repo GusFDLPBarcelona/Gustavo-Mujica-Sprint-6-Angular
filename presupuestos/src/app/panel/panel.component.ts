@@ -1,6 +1,5 @@
-import { Component, EventEmitter, HostListener, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 import { BudgetService } from '../services/budget.service';
 import { ModalComponent } from '../shared/modal/modal.component';
 import { iExtra } from '../models/budget';
@@ -8,7 +7,7 @@ import { iExtra } from '../models/budget';
 @Component({
   selector: 'app-panel',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ModalComponent],
+  imports: [ReactiveFormsModule, ModalComponent],
   templateUrl: './panel.component.html',
   styleUrls: ['./panel.component.css']
 })
@@ -19,7 +18,6 @@ export class PanelComponent {
 
 
 
-  mouseout = false;
   extras = 0;
   constructor(private budgetService: BudgetService) { }
 

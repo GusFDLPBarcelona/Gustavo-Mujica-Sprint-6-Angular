@@ -1,65 +1,50 @@
-# Gustavo-Mujica-Sprint-6-Angular
-# Aplicación de Gestión de Presupuestos.
+# Sprint 6 — Calculadora de Presupuestos
 
-## Descripción 📄
+Aplicación de gestión de presupuestos construida con **Angular 18** que permite calcular el coste de servicios digitales (SEO, Ads, Web), guardar presupuestos con datos de cliente y consultarlos en un listado con ordenación, búsqueda y vista de detalle compartible por URL.
 
-Esta es una aplicación de gestión de presupuestos desarrollada en Angular. Permite a los usuarios crear,, ordenar y compartir presupuestos.
+## Demo
 
+[Ver demo en GitHub Pages](https://gusfdlpbarcelona.github.io/Gustavo-Mujica-Sprint-6-Angular/)
 
-## Características ✨
+## Tecnologías
 
-- Crear presupuestos con diferentes servicios y costos asociados.
-- Guardar los presupuestos en el almacenamiento local del navegador.
-- Visualizar una lista de presupuestos creados.
-- Ordenar y buscar presupuestos en la lista.
-- Compartir presupuestos a través de una URL.
-- Recrear presupuestos a partir de URL compartidas.
-
-
-
-## Tecnologías Utilizadas 💻
-
+- Angular 18 (standalone components, nueva sintaxis de control de flujo `@if` / `@for`)
 - TypeScript
-- HTML5
-- CSS 
-- [Angular CLI](https://github.com/angular/angular-cli) version 18.
+- Angular Router con rutas parametrizadas
+- Reactive Forms con validación
+- Bootstrap 5
 
-## Requisitos 📋
+## Estructura del proyecto
 
-- Node.js y npm instalados en tu sistema. Puedes descargarlos desde [nodejs.org](https://nodejs.org/).
-- Angular CLI instalado globalmente. Puedes instalarlo con el siguiente comando:
-
-```bash
-npm install -g @angular/cli
+```
+presupuestos/
+├── src/app/
+│   ├── home/            # Página principal: formulario de servicios y datos de cliente
+│   ├── panel/           # Subpanel de extras Web (páginas e idiomas) con modal informativo
+│   ├── budget-list/     # Listado de presupuestos con ordenación y búsqueda
+│   ├── detalle/         # Vista de detalle de un presupuesto (datos en la URL)
+│   ├── shared/modal/    # Componente modal reutilizable
+│   ├── services/        # BudgetService: lógica de cálculo y almacenamiento
+│   ├── models/          # Interfaces iPresupuesto, iExtra
+│   └── app.routes.ts    # Enrutado: /home, /lista, /detalle/...
 ```
 
-## Instalación 🛠️
+## Conceptos practicados
 
-1. Clona el repositorio:
+- **Angular Router** con rutas estáticas y parametrizadas (múltiples params en URL)
+- **Reactive Forms** (`FormGroup`, `FormControl`, `Validators`, `FormBuilder`)
+- **Validación de formularios** con feedback visual (`[class.is-valid]`, `[class.is-invalid]`)
+- **`@Output` / `EventEmitter`** para comunicación hijo → padre (PanelComponent → HomeComponent)
+- **`@ViewChild`** para acceder a métodos de componentes hijos
+- **Servicios e inyección de dependencias** para compartir estado entre vistas
+- **URL como estado** — el detalle del presupuesto viaja completamente en la URL y puede compartirse
+- **Nueva sintaxis de control de flujo** (`@if`, `@for`) — Angular 17+
 
-https://github.com/GusFDLPBarcelona/Gustavo-Mujica-Sprint-6-Angular.git
+## Instalación
 
-2. Ingresa al directorio del proyecto:
-```bash
-cd presupuestos
-```
-
-4. Instala las dependencias:
 ```bash
 npm install
+ng serve
 ```
 
-
-## Ejecución ▶️
-Ejecuta la aplicación con el siguiente comando:
-```bash
-ng s -o
-
-Desde la consola de VSC: npm start
-```
-
-## Interactúa con la aplicación según sea necesario:
-- Crea nuevos presupuestos.
-- Ordena y selecciona presupuestos creados.
-- Comparte presupuestos utilizando las URL generadas.
-- Recrea presupuestos a partir de URL compartidas.
+Navega a `http://localhost:4200/`.

@@ -1,9 +1,8 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { BudgetService } from '../services/budget.service';
 import { iPresupuesto } from '../models/budget';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ActivatedRoute, Params } from "@angular/router";
 
 
 @Component({
@@ -26,9 +25,9 @@ export class BudgetListComponent {
     nombre: new FormControl('')
   })
 
-  constructor(private budgetService: BudgetService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private budgetService: BudgetService, private router: Router) { }
 
-  //presupuestosList = signal(this.userPresupuestos);
+
 
   ngOnInit(): void {
     this.userPresupuestos = this.budgetService.getPresupuestos();
@@ -70,7 +69,7 @@ export class BudgetListComponent {
         if (a.usuario.fecha.getTime() > b.usuario.fecha.getTime()) {
           return -1;
         }
-        if (a.usuario.fecha.getTime() > b.usuario.fecha.getTime()) {
+        if (a.usuario.fecha.getTime() < b.usuario.fecha.getTime()) {
           return 1;
         }
         this.userPresupuestos = arrayOrdenado;

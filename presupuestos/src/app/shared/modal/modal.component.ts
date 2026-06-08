@@ -1,11 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-modal',
   standalone: true,
   providers: [],
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })

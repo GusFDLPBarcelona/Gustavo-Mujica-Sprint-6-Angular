@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-detalle',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './detalle.component.html',
   styleUrl: './detalle.component.css'
 })
-export class DetalleComponent {
+export class DetalleComponent implements OnInit {
 
   user!: string;
   monto!: number;
@@ -19,7 +19,6 @@ export class DetalleComponent {
   seo!: boolean;
 
   constructor(private route: ActivatedRoute) { }
-
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
